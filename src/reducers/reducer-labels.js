@@ -1,7 +1,26 @@
-import { FETCH_LABELS, FETCH_ADD_LABEL } from "../actions/action-label";
+import {
+  FETCH_LABELS,
+  FETCH_ADD_LABEL,
+  FETCH_GET_LABEL
+} from "../actions/action-label";
 
 const initialState = {
-  isInit: false,
+  isLabelListInit: false,
+  selectedLabel: {
+    _id: undefined,
+    updatedAt: undefined,
+    createAt: undefined,
+    title: undefined,
+    memos: [
+      {
+        _id: undefined,
+        updatedAt: undefined,
+        createAt: undefined,
+        title: undefined,
+        content: undefined
+      }
+    ]
+  },
   labelList: [
     {
       _id: undefined,
@@ -33,6 +52,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         labelList: [...state.labelList, action.arg]
+      };
+    case FETCH_GET_LABEL:
+      return {
+        ...state,
+        selectedLabel: { ...action.arg }
       };
     default:
       return state;

@@ -48,3 +48,34 @@ export function getLabels(obj) {
 export function AddLabel(obj) {
   return buildApi("POST", "/labels", obj);
 }
+
+export function getLabel(id) {
+  return buildApi("GET", `/labels/${id}`);
+}
+
+export function AddMemo(id) {
+  return buildApi("POST", `/labels/${id}/memos`);
+}
+
+export function updateLabel(id, obj) {
+  return buildApi("PUT", `/labels/${id}`, obj);
+}
+
+export function getMemo(id) {
+  return buildApi("GET", `/memos/${id}`);
+}
+
+export function delLabel(id) {
+  return buildApi("DELETE", `labels/${id}`);
+}
+
+export function updateMemo(id, obj) {
+  return buildApi("PUT", `/memos/${id}`, obj);
+}
+
+export function delMemo(id) {
+  return buildApi("DELETE", `/memos/${id}`);
+}
+export function createMemo(obj) {
+  return buildApi("POST", `/memos`, obj);
+}
