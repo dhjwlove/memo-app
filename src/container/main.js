@@ -34,6 +34,7 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      cnt: 0,
       isShowLabelMemos: false
     };
   }
@@ -76,7 +77,13 @@ class Main extends React.Component {
     this.props.fetchGetLabel(id);
   };
 
+  onClickUpdateBtn = (id, obj) => {
+    this.props.fetchUpdateMemo(id, obj);
+    // this.setState({ cnt: this.state.cnt + 1 });
+  };
+
   render() {
+    console.log("main rendering");
     const {
       totalMemoCnt,
       labelList,
@@ -111,7 +118,7 @@ class Main extends React.Component {
         />
         <MemoDetail
           selectedMemo={selectedMemo}
-          fetchUpdateMemo={fetchUpdateMemo}
+          fetchUpdateMemo={this.onClickUpdateBtn}
           fetchDelMemo={fetchDelMemo}
         />
       </Wrapper>

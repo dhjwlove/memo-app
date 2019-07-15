@@ -105,6 +105,9 @@ const MemoList = props => {
 
   return (
     <Wrapper>
+      {console.log("memoList rendering")}
+      {console.log(memoList)}
+
       <LabelNameBox>
         <div className="title">{isShowLabelMemos && selectedLabel.title}</div>
         <div className="configure-btn">
@@ -121,6 +124,7 @@ const MemoList = props => {
       {/* 전체 메모 리스트 */}
       {!isShowLabelMemos && isInitMemos && (
         <div>
+          {console.log("render Inner function")}
           {memoList.length > 0 ? (
             <List>
               {memoList.map((memo, idx) => (

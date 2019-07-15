@@ -11,6 +11,7 @@ const intialState = {
   isInit: false,
   totalCnt: 0,
   selectedMemo: undefined,
+  updatedAt: undefined,
   memoList: [
     {
       _id: undefined,
@@ -32,9 +33,10 @@ export default function(state = intialState, action) {
         memoList: [...action.arg]
       };
     case FETCH_GET_MEMO:
+      state["selectedMemo"] = action.arg;
       return {
-        ...state,
-        selectedMemo: action.arg
+        ...state
+        // selectedMemo: action.arg
       };
     case CLEAR_SLELCTED_MEMO:
       return {
@@ -45,6 +47,7 @@ export default function(state = intialState, action) {
       const update_idx = state.memoList.findIndex(function(item) {
         return item["_id"] === action.arg["_id"];
       });
+      state["updatedAt"] = action.arg.updatedAt;
       state.memoList[update_idx].title = action.arg.title;
       state.memoList[update_idx].content = action.arg.content;
       return {

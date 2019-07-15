@@ -101,6 +101,7 @@ class MemoDetail extends React.Component {
       content: this.state.content
     };
     const id = selectedMemo._id;
+    console.log(id, obj);
     fetchUpdateMemo(id, obj);
   };
 
@@ -114,6 +115,7 @@ class MemoDetail extends React.Component {
     const { selectedMemo } = this.props;
     return (
       <Wrapper>
+        {console.log("memDetail rendering")}
         {selectedMemo && (
           <div>
             <Header>

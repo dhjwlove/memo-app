@@ -93,6 +93,7 @@ const LabelList = props => {
 
   return (
     <Wrapper>
+      {console.log("labelList rendering")}
       <TotalMemoCnt onClick={() => history.push("/")}>
         <span>{`전체메모(${totalMemoCnt})`}</span>
         <div className="new-memo" onClick={onClickNewMemoBtn}>{`새메모`}</div>
